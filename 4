@@ -1,0 +1,55 @@
+def max(maxx, mas):
+    for i in range(1, len(mas)):
+        if mas[i] > maxx:
+            maxx = mas[i]
+    return maxx
+def min(minx, mas):
+    for i in range(1, len(mas)):
+        if mas[i] < minx:
+            minx = mas[i]
+    return minx
+def cut1(maax, mas):
+    mas2 = []
+    for i in range(len(mas)):
+        if mas[i] != maax:
+            mas2.append(mas[i])
+        if mas[i] == maax:
+            mas2.append(mas[i])
+            break
+    return mas2
+def reverse(mas2):
+    mas3 = []
+    for i in range(len(mas2) - 1, -1, -1):
+        mas3.append(mas2[i])
+    return mas3
+def cut2(miix, mas3):
+    mas4 = []
+    for i in range(len(mas3)):
+        if mas3[i] != miix:
+            mas4.append(mas3[i])
+        if mas3[i] == miix:
+            mas4.append(mas3[i])
+            break
+    return mas4
+def sorted(mas4):
+    for k in range(len(mas4)):
+        minim = k
+        for j in range(k + 1, len(mas4)):
+            if mas4[j] > mas4[minim]:
+                minim = j
+        mas4[minim], mas4[k] = mas4[k], mas4[minim]
+    return mas4
+n = 10
+mas = []
+for i in range(n):
+    a = int(input())
+    mas.append(a)
+maxx = mas[0]
+minx = mas[0]
+miix = min(minx, mas)
+maax = max(maxx, mas)
+mas2 = cut1(maax, mas)
+mas3 = reverse(mas2)
+mas4 = cut2(miix, mas3)
+sort = sorted(mas4)
+print(sort)
